@@ -1,0 +1,385 @@
+/* ========================================
+   GLOBAL STYLES
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  color: #172033;
+  background: #f3f6fb;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* ========================================
+   MAIN LAYOUT
+======================================== */
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: min(100%, 520px);
+  background: #ffffff;
+  border: 1px solid #e5eaf2;
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 18px 55px rgba(25, 39, 70, 0.10);
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #63718a;
+}
+
+h1 {
+  margin: 6px 0;
+  font-size: clamp(28px, 7vw, 42px);
+  letter-spacing: -0.04em;
+}
+
+.subtitle {
+  margin: 0 0 22px;
+  color: #667085;
+  line-height: 1.5;
+}
+
+/* ========================================
+   SESSION SELECTOR
+======================================== */
+
+.session-selector {
+  margin-bottom: 20px;
+}
+
+.session-selector label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #344054;
+}
+
+.session-selector select {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #d7dce5;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #172033;
+  cursor: pointer;
+  outline: none;
+  appearance: auto;
+}
+
+.session-selector select:hover {
+  border-color: #98a2b3;
+}
+
+.session-selector select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.session-selector select:invalid {
+  color: #667085;
+}
+
+.session-hint {
+  margin: 7px 0 0;
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ========================================
+   QR SCANNER
+======================================== */
+
+.reader {
+  overflow: hidden;
+  border: 1px solid #dfe5ee;
+  border-radius: 16px;
+  background: #0f172a;
+}
+
+#reader video {
+  border-radius: 14px;
+}
+
+#reader img {
+  max-width: 100%;
+}
+
+#reader button {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+#reader button:hover {
+  opacity: 0.9;
+}
+
+#reader select {
+  max-width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+#reader__dashboard_section_csr {
+  padding: 10px;
+}
+
+/* ========================================
+   ATTENDANCE STATUS
+======================================== */
+
+.status {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border: 1px solid #e4e8ef;
+  border-radius: 14px;
+  background: #f8fafc;
+  overflow-wrap: anywhere;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: #98a2b3;
+}
+
+.status strong {
+  display: block;
+  line-height: 1.4;
+}
+
+.status p {
+  margin: 4px 0 0;
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.status-loading {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.status-loading .status-dot {
+  background: #2563eb;
+  animation: pulse 1s infinite alternate;
+}
+
+.status-success {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.status-success .status-dot {
+  background: #16a34a;
+}
+
+.status-error {
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.status-error .status-dot {
+  background: #ea580c;
+}
+
+.status-neutral {
+  background: #f8fafc;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   RESTART BUTTON
+======================================== */
+
+.restart-btn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 13px 16px;
+  border: 0;
+  border-radius: 12px;
+  background: #172033;
+  color: #ffffff;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.restart-btn:hover {
+  background: #29364f;
+}
+
+.restart-btn[hidden] {
+  display: none;
+}
+
+/* ========================================
+   MANUAL ID ENTRY
+======================================== */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0 12px;
+  color: #98a2b3;
+  font-size: 12px;
+  text-align: center;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: #e5e7eb;
+}
+
+.manual-entry form {
+  display: flex;
+  gap: 8px;
+}
+
+.manual-entry input {
+  min-width: 0;
+  flex: 1;
+  padding: 12px 13px;
+  border: 1px solid #d7dce5;
+  border-radius: 12px;
+  outline: none;
+  background: #ffffff;
+  color: #172033;
+}
+
+.manual-entry input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.manual-entry button {
+  width: auto;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 12px;
+  background: #e9eef7;
+  color: #172033;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.manual-entry button:hover {
+  background: #dbe5f4;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.app-footer {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #edf0f5;
+  text-align: center;
+}
+
+.app-footer p {
+  margin: 4px 0;
+  color: #98a2b3;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 520px) {
+  .app-shell {
+    padding: 12px;
+    align-items: start;
+  }
+
+  .card {
+    margin-top: 12px;
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .manual-entry form {
+    flex-direction: column;
+  }
+
+  .manual-entry button {
+    width: 100%;
+  }
+
+  .session-selector select {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

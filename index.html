@@ -1,0 +1,150 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>QR Attendance Scanner</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script
+    src="https://unpkg.com/html5-qrcode"
+    defer
+  ></script>
+
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <main class="app-shell">
+    <section class="card">
+
+      <div class="eyebrow">EVENT ATTENDANCE</div>
+
+      <h1>QR Scanner</h1>
+
+      <p class="subtitle">
+        Scan a participant QR code to mark attendance
+        for the selected session.
+      </p>
+
+      <!-- Attendance Session Selector -->
+      <div class="session-selector">
+        <label for="attendance-session">
+          Select Attendance Session
+        </label>
+
+        <select id="attendance-session" required>
+          <option value="" selected disabled>
+            Choose a session
+          </option>
+
+          <option value="registration">
+            Registration
+          </option>
+
+          <option value="food day 1 breakfast">
+            Day 1 - Breakfast
+          </option>
+
+          <option value="food day 1 lunch">
+            Day 1 - Lunch
+          </option>
+
+          <option value="food day 1 dinner">
+            Day 1 - Dinner
+          </option>
+
+          <option value="food day 2 breakfast">
+            Day 2 - Breakfast
+          </option>
+
+          <option value="food day 2 lunch">
+            Day 2 - Lunch
+          </option>
+
+          <option value="food day 2 dinner">
+            Day 2 - Dinner
+          </option>
+        </select>
+
+        <p class="session-hint">
+          Select the session before scanning a QR code.
+        </p>
+      </div>
+
+      <!-- QR Scanner -->
+      <div id="reader" class="reader"></div>
+
+      <!-- Attendance Status -->
+      <div
+        id="status"
+        class="status status-neutral"
+        role="status"
+        aria-live="polite"
+      >
+        <span class="status-dot"></span>
+
+        <div>
+          <strong id="status-title">
+            Ready to scan
+          </strong>
+
+          <p id="status-message">
+            Select a session and allow camera access when prompted.
+          </p>
+        </div>
+      </div>
+
+      <!-- Scan Again -->
+      <button
+        id="restart-btn"
+        class="restart-btn"
+        type="button"
+        hidden
+      >
+        Scan another QR
+      </button>
+
+      <!-- Manual Attendance Entry -->
+      <div class="manual-entry">
+
+        <div class="divider">
+          <span>or enter participant ID manually</span>
+        </div>
+
+        <form id="manual-form">
+
+          <input
+            id="manual-id"
+            type="text"
+            placeholder="Enter participant ID, e.g. EMP023"
+            autocomplete="off"
+            required
+          />
+
+          <button type="submit">
+            Mark Present
+          </button>
+
+        </form>
+      </div>
+
+      <!-- Attendance Information -->
+      <footer class="app-footer">
+        <p>
+          QR Attendance System
+        </p>
+
+        <p>
+          Each scan updates only the selected session.
+        </p>
+      </footer>
+
+    </section>
+  </main>
+</body>
+</html>
+```
